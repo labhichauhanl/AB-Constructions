@@ -1,0 +1,152 @@
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuBtn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.menuBtn:hover {
+    background-color: #c6c6c6;
+    border-radius: 5px;
+    transition: .3s;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.menuBtn svg {
+    font-size: 32px;
+    color: var(--text-primary);
+}
+
+.searchContainer {
+    width: 450px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(5px);
+    padding: 0 15px;
+    border-radius: 12px;
+}
+
+.searchIcon {
+    color: #444;
+}
+
+.searchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+}
+
+.searchInput::placeholder {
+    color: #444;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.notificationWrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.notificationWrapper svg {
+    font-size: 30px;
+}
+
+.notificationBadge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificationWrapper:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    color: var(--text-primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInfo h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile svg {
+    font-size: 22px;
+}
+
+.profile:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: .2s;
+    border-radius: 5px;
+}
+
+.searchContainer {
+    transition: .2s;
+}
+
+.searchContainer:hover {
+    background: rgba(255,255,255,.45);
+}
+
+.searchContainer:focus-within {
+    background: rgba(255,255,255,.55);
+}

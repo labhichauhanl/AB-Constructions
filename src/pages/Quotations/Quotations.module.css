@@ -1,0 +1,173 @@
+.quotationsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 214, 0.95),
+    rgba(255, 243, 184, 0.9)
+  );
+
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 214, 10, 0.2);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+.pageHeader h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.pageHeader p {
+  color: var(--text-secondary);
+}
+
+.addButton {
+  border: none;
+  background: var(--primary-color);
+  color: black;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  transform: translateY(-3px);
+}
+
+.searchWrapper {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ececec;
+  padding: 16px;
+  border-radius: 18px;
+  width: 600px;
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.tableSection {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid #ececec;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.quotationTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quotationTable th {
+  text-align: left;
+  padding: 16px;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.quotationTable td {
+  padding: 18px 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.quotationTable tbody tr:hover {
+  background: rgba(255, 248, 214, 1);
+  cursor: pointer;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.approved {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.approveButton {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.editButton {
+  background: rgba(100, 100, 100, 0.12);
+  color: black;
+  border-radius: 7px;
+  padding: 7px 20px;
+}
+
+.approveButton {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+.editButton:hover,
+.approveButton:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .tableSection {
+    overflow-x: auto;
+  }
+
+  .quotationTable {
+    min-width: 750px;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+}

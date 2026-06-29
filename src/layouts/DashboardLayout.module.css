@@ -1,0 +1,22 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.mainSection {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  background-color: rgb(235, 235, 235);
+  background-size: 40px 40px;
+}
+
+.content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
