@@ -61,7 +61,8 @@ const machineAvailability = [
 
 function MachineAvailability() {
 
-  const [selectedDate, setSelectedDate] = useState("");
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
   const [selectedType, setSelectedType] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -77,42 +78,38 @@ function MachineAvailability() {
   }
   );
 
-  const availableMachines =
-    filteredMachines.filter((machine) => {
-      if (!selectedDate) return [];
-      if (machine.status.toLowerCase().trim() === "maintenance")
-        return false;
-      const selected = new Date(selectedDate);
-      const isUnavailable = machine.bookings.some((booking) => {
-        const from = new Date(booking.from);
-        const to = new Date(booking.to);
+  const availableMachines = filteredMachines.filter((machine) => {
+    if (!fromDate || !toDate) return [];
+    const selectedFrom = new Date(fromDate);
+    const selectedTo = new Date(toDate);
+    const overlaps = machine.bookings.some((booking) => {
+        const bookingFrom = new Date(booking.from);
+        const bookingTo = new Date(booking.to);
         return (
-          selected >= from &&
-          selected <= to
+          bookingFrom <= selectedTo &&
+          bookingTo >= selectedFrom
         );
-      });
-      return !isUnavailable;
-    });
+      }
+    );
+    return !overlaps;
+  });
 
-  const unavailableMachines =
-    filteredMachines.filter((machine) => {
-      if (!selectedDate) return [];
-      if (machine.status.toLowerCase().trim() === "maintenance")
-        return true;
-      const selected = new Date(selectedDate);
-      return machine.bookings.some((booking) => {
-        const from = new Date(booking.from);
-        const to = new Date(booking.to);
-        return (
-          selected >= from &&
-          selected <= to
-        );
-      });
+  const unavailableMachines = filteredMachines.filter((machine) => {
+    if (!fromDate || !toDate) return [];
+    const selectedFrom = new Date(fromDate);
+    const selectedTo = new Date(toDate);
+    return machine.bookings.some((booking) => {
+      const bookingFrom = new Date(booking.from);
+      const bookingTo = new Date(booking.to);
+      return (
+        bookingFrom <= selectedTo &&
+        bookingTo >= selectedFrom
+      );
     });
+  });
 
   const upcomingReleases = machineAvailability.filter((machine) => machine.bookings.length > 0).map((machine) => {
     const latestBooking = machine.bookings[machine.bookings.length - 1];
-
     return {
       machine: machine.machine,
       type: machine.type,
@@ -201,14 +198,22 @@ function MachineAvailability() {
       <div className={styles.searchWrapper}>
         <div className={styles.plannerSection}>
           <div className={styles.filterSection}>
-            <label>Select Date</label>
-
+            <label>From Date</label>
             <input
               type="date"
               className={styles.dateInput}
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)
-              }
+              value={fromDate}
+              onChange={(e) => setFromDate(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.filterSection}>
+            <label>To Date</label>
+            <input
+              type="date"
+              className={styles.dateInput}
+              value={toDate}
+              onChange={(e) => setToDate(e.target.value)}
             />
           </div>
 
@@ -240,7 +245,7 @@ function MachineAvailability() {
         />
       </div>
 
-      {selectedDate && (
+      {fromDate && toDate && (
         <div className={styles.resultSection}>
 
           {/* Available Machines */}
