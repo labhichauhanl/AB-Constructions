@@ -165,8 +165,8 @@ function Projects() {
       <section className={styles.statsGrid}>
         <div className={styles.statCard}>
           <div className={styles.cardHeader}>
-            <h3>Active Projects</h3>
             <FolderOpenIcon className={styles.cardIcon} />
+            <h3>Active Projects</h3>
           </div>
           <h2>{activeProjects}</h2>
           <p>Currently running</p>
@@ -174,8 +174,8 @@ function Projects() {
 
         <div className={styles.statCard}>
           <div className={styles.cardHeader}>
-            <h3>Due This Month</h3>
             <CalendarMonthIcon className={styles.cardIcon} />
+            <h3>Due This Month</h3>
           </div>
           <h2>{dueThisMonth}</h2>
           <p>Closing soon</p>
@@ -183,8 +183,8 @@ function Projects() {
 
         <div className={styles.statCard}>
           <div className={styles.cardHeader}>
-            <h3>Delayed Projects</h3>
             <WarningAmberIcon className={styles.cardIcon} />
+            <h3>Delayed Projects</h3>
           </div>
           <h2>{delayedProjects}</h2>
           <p>Require attention</p>
@@ -192,8 +192,8 @@ function Projects() {
 
         <div className={styles.statCard}>
           <div className={styles.cardHeader}>
-            <h3>Total Contract Value</h3>
             <AccountBalanceWalletIcon className={styles.cardIcon} />
+            <h3>Total Contract Value</h3>
           </div>
           <h2>
             ₹{(totalContractValue / 10000000).toFixed(1)} Cr
@@ -204,89 +204,107 @@ function Projects() {
 
       <section className={styles.filterSection}>
 
-        <input
-          type="text"
-          placeholder="Search project..."
-          className={styles.searchInput}
-          value={searchTerm}
-          onChange={(e) =>
-            setSearchTerm(e.target.value)
-          }
-        />
+        <div className={styles.filterGroup}>
+          <label>Search Projects</label>
+          <input
+            type="text"
+            placeholder="Search project..."
+            className={styles.searchInput}
+            value={searchTerm}
+            onChange={(e) =>
+              setSearchTerm(e.target.value)
+            }
+          />
+        </div>
 
-        <select
-          className={styles.filterSelect}
-          value={selectedStatus}
-          onChange={(e) =>
-            setSelectedStatus(e.target.value)
-          }
-        >
-          <option>All</option>
-          <option>Running</option>
-          <option>Delayed</option>
-          <option>Completed</option>
-          <option>Upcoming</option>
-        </select>
+        <div className={styles.filterGroup}>
+          <label>Projects Status</label>
+          <select
+            className={styles.filterSelect}
+            value={selectedStatus}
+            onChange={(e) =>
+              setSelectedStatus(e.target.value)
+            }
+          >
+            <option>All</option>
+            <option>Running</option>
+            <option>Delayed</option>
+            <option>Completed</option>
+            <option>Upcoming</option>
+          </select>
+        </div>
 
-        <select
-          className={styles.filterSelect}
-          value={selectedType}
-          onChange={(e) =>
-            setSelectedType(e.target.value)
-          }
-        >
-          <option>All</option>
-          <option>Commercial</option>
-          <option>Residential</option>
-          <option>Industrial</option>
-        </select>
+        <div className={styles.filterGroup}>
+          <label>Project Type</label>
+          <select
+            className={styles.filterSelect}
+            value={selectedType}
+            onChange={(e) =>
+              setSelectedType(e.target.value)
+            }
+          >
+            <option>All</option>
+            <option>Commercial</option>
+            <option>Residential</option>
+            <option>Industrial</option>
+          </select>
+        </div>
 
-        <select
-          className={styles.filterSelect}
-          value={selectedManager}
-          onChange={(e) =>
-            setSelectedManager(e.target.value)
-          }
-        >
-          {managers.map(manager => (
-            <option
-              key={manager}
-              value={manager}
-            >
-              {manager}
-            </option>
-          ))}
-        </select>
+        <div className={styles.filterGroup}>
+          <label>Project Manager</label>
+          <select
+            className={styles.filterSelect}
+            value={selectedManager}
+            onChange={(e) =>
+              setSelectedManager(e.target.value)
+            }
+          >
+            {managers.map(manager => (
+              <option
+                key={manager}
+                value={manager}
+              >
+                {manager}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select
-          className={styles.filterSelect}
-          value={selectedClient}
-          onChange={(e) =>
-            setSelectedClient(e.target.value)
-          }
-        >
-          {clients.map(client => (
-            <option
-              key={client}
-              value={client}
-            >
-              {client}
-            </option>
-          ))}
-        </select>
+        <div className={styles.filterGroup}>
+          <label>Project Client</label>
+          <select
+            className={styles.filterSelect}
+            value={selectedClient}
+            onChange={(e) =>
+              setSelectedClient(e.target.value)
+            }
+          >
+            {clients.map(client => (
+              <option
+                key={client}
+                value={client}
+              >
+                {client}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select
-          className={styles.filterSelect}
-          value={sortBy}
-          onChange={(e) =>
-            setSortBy(e.target.value)
-          }
-        >
-          <option>Start Date</option>
-          <option>End Date</option>
-          <option>Progress</option>
-          <option>Budget</option>
-        </select>
+        <div className={styles.filterGroup}>
+          <label>Sort By</label>
+          <select
+            className={styles.filterSelect}
+            value={sortBy}
+            onChange={(e) =>
+              setSortBy(e.target.value)
+            }
+          >
+            <option>Start Date</option>
+            <option>End Date</option>
+            <option>Progress</option>
+            <option>Budget</option>
+          </select>
+        </div>
       </section>
 
       <section className={styles.tableSection}>
@@ -449,7 +467,7 @@ function Projects() {
                             <div className={styles.budgetBar}>
                               <div
                                 className={styles.budgetFill}
-                                style = {{
+                                style={{
                                   width: `${(project.spent / project.budget) * 100}%`,
                                 }}
                               />

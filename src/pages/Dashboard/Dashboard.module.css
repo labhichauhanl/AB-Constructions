@@ -7,11 +7,9 @@
 /* Welcome */
 
 .welcomeSection {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 248, 214, 0.95),
-    rgba(255, 243, 184, 0.9)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 248, 214, 0.95),
+      rgba(255, 243, 184, 0.9));
   padding: 24px;
   border-radius: 22px;
   border: 1px solid rgba(255, 214, 10, 0.2);
@@ -38,11 +36,9 @@
 }
 
 .statCard {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #fafafa
-  );
+  background: linear-gradient(180deg,
+      #ffffff,
+      #fafafa);
 
   border: 1px solid #ececec;
   border-radius: 20px;
@@ -56,8 +52,8 @@
   transform: translateY(-6px);
   box-shadow:
     0 18px 35px rgba(15, 23, 42, 0.12);
-      background: rgb(255, 213, 0, 0.05);
-      cursor: pointer;
+  background: rgba(255, 248, 214, 1);
+  cursor: pointer;
 }
 
 .cardTop {
@@ -186,11 +182,9 @@
   height: 80px;
   border: none;
   border-radius: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 248, 214, 0.95),
-    rgba(255, 243, 184, 0.9)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 248, 214, 0.95),
+      rgba(255, 243, 184, 0.9));
   border: 1px solid #ececec;
   font-weight: 600;
   color: var(--text-primary);
@@ -201,7 +195,7 @@
 .actionCard:hover {
   transform: translateY(-4px);
   background: var(--primary-color);
-  color: black;   
+  color: black;
 }
 
 ::-webkit-scrollbar {
