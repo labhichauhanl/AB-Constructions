@@ -132,7 +132,7 @@ function Requirements() {
 
   const pendingRequests = requirementData.filter(req => req.status === "Pending").length;
   const approvedRequests = requirementData.filter(req => req.status === "Approved").length;
-  const allocatedMachines = requirementData.reduce((sum, req) => sum + req.quantity,0);
+  const allocatedMachines = requirementData.reduce((sum, req) => sum + req.quantity, 0);
   const quotationsReceived = requirementData.reduce((sum, req) => sum + req.quotations.length, 0);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("All");
@@ -348,7 +348,7 @@ function Requirements() {
 
       <section className={styles.tableSection}>
         <h2>Requirements Overview</h2>
-        
+
         <table className={styles.requirementsTable}>
           <thead>
             <tr>
@@ -497,34 +497,28 @@ function Requirements() {
                             <strong>{item.workHours}</strong>
                           </div>
                         </div>
+
                         <div className={styles.detailCard}>
-                          <h3>Vendor Quotations</h3>
+                          <h3>Operational Details</h3>
 
-                          <div className={styles.quotationList}>
-                            {item.quotations.map((quote, index) => (
-                              <div
-                                key={index}
-                                className={styles.quotationItem}
-                              >
-                                <div>
-                                  <strong>{quote.vendor}</strong>
+                          <div className={styles.detailRow}>
+                            <span>Operators Required</span>
+                            <strong>{item.operators}</strong>
+                          </div>
 
-                                  <p>
-                                    Delivery:
-                                    {" "}
-                                    {quote.delivery}
-                                  </p>
-                                </div>
+                          <div className={styles.detailRow}>
+                            <span>Nature of Work</span>
+                            <strong>{item.natureOfWork}</strong>
+                          </div>
 
-                                <div className={styles.quoteInfo}>
-                                  <span>{quote.price}</span>
+                          <div className={styles.detailRow}>
+                            <span>Expected Utilization</span>
+                            <strong>{item.utilization}</strong>
+                          </div>
 
-                                  <small>
-                                    ⭐ {quote.rating}
-                                  </small>
-                                </div>
-                              </div>
-                            ))}
+                          <div className={styles.detailRow}>
+                            <span>Site Conditions</span>
+                            <strong>{item.siteCondition}</strong>
                           </div>
                         </div>
 
