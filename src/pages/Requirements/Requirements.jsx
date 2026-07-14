@@ -144,6 +144,7 @@ function Requirements() {
   const projects = ["All", ...new Set(requirementData.map(req => req.project))];
   const machines = ["All", ...new Set(requirementData.map(req => req.machine))];
   const requesters = ["All", ...new Set(requirementData.map(req => req.requestedBy))];
+
   const filteredRequirements = requirementData.filter(req => {
 
     const matchesSearch =
@@ -188,6 +189,7 @@ function Requirements() {
       month: "short",
       year: "numeric"
     });
+  const [activeTabs, setActiveTabs] = useState({});
 
   return (
     <div className={styles.requirementsPage}>
@@ -363,172 +365,270 @@ function Requirements() {
           </thead>
 
           <tbody>
-            {filteredRequirements.map((item) => (
-              <React.Fragment key={item.id}>
+            {filteredRequirements.map((item) => {
+              const currentTab = activeTabs[item.id] || "info";
+              return (
+                <React.Fragment key={item.id}>
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
 
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-
-                  <td>
-                    <div className={styles.machineCell}>
-                      <strong>{item.quantity} × {item.machine}</strong>
-                      <span>{item.capacity}</span>
-                    </div>
-                  </td>
-
-                  <td>{item.project}</td>
-                  <td>{item.requestedBy}</td>
-
-                  <td>
-                    <div className={styles.durationCell}>
-                      <strong> {item.fromDate} </strong>
-                      <span>to</span>
-                      <strong>{item.toDate}</strong>
-                    </div>
-                  </td>
-
-                  <td>
-                    <span className={`${styles.statusBadge} ${styles[item.status.replace(/\s+/g, "").toLowerCase()]}`}> {item.status}</span>
-                  </td>
-
-                  <td>
-                    <div className={styles.actionButtons}>
-                      <button className={styles.viewButton}
-                        onClick={() => setExpandedRequirement(expandedRequirement === item.id ? null : item.id)}>
-                        {expandedRequirement === item.id ? "Hide" : "View"} </button>
-                      <button className={styles.editButton}> Edit </button>
-                    </div>
-                  </td>
-                </tr>
-                {expandedRequirement === item.id && (
-                  <tr>
-                    <td colSpan="8">
-
-                      <div className={styles.requirementDetails}>
-
-                        <div className={styles.detailCard}>
-                          <h3>Requirement Information</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Requirement ID</span>
-                            <strong>{item.id}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Requested By</span>
-                            <strong>{item.requestedBy}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Department</span>
-                            <strong>{item.department}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Created On</span>
-                            <strong>{item.createdOn}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Priority</span>
-                            <strong>{item.priority}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Status</span>
-                            <strong>{item.status}</strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Machine Details</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Machine Type</span>
-                            <strong>{item.machine}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Capacity Required</span>
-                            <strong>{item.capacity}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Quantity Required</span>
-                            <strong>{item.quantity}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Operators Required</span>
-                            <strong>{item.operators}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Expected Utilization</span>
-                            <strong>{item.utilization}</strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Schedule Details</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>From Date</span>
-                            <strong>{formatDate(item.fromDate)}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>To Date</span>
-                            <strong>{formatDate(item.toDate)}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Duration</span>
-                            <strong>{item.duration} Days</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Shift Type</span>
-                            <strong>{item.shift}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Working Hours</span>
-                            <strong>{item.workHours}</strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Operational Details</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Operators Required</span>
-                            <strong>{item.operators}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Nature of Work</span>
-                            <strong>{item.natureOfWork}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Expected Utilization</span>
-                            <strong>{item.utilization}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Site Conditions</span>
-                            <strong>{item.siteCondition}</strong>
-                          </div>
-                        </div>
-
+                    <td>
+                      <div className={styles.machineCell}>
+                        <strong>{item.quantity} × {item.machine}</strong>
+                        <span>{item.capacity}</span>
                       </div>
+                    </td>
 
+                    <td>{item.project}</td>
+                    <td>{item.requestedBy}</td>
+
+                    <td>
+                      <div className={styles.durationCell}>
+                        <strong> {item.fromDate} </strong>
+                        <span>to</span>
+                        <strong>{item.toDate}</strong>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span className={`${styles.statusBadge} ${styles[item.status.replace(/\s+/g, "").toLowerCase()]}`}> {item.status}</span>
+                    </td>
+
+                    <td>
+                      <div className={styles.actionButtons}>
+                        <button className={styles.viewButton}
+                          onClick={() => setExpandedRequirement(expandedRequirement === item.id ? null : item.id)}>
+                          {expandedRequirement === item.id ? "Hide" : "View"} </button>
+                        <button className={styles.editButton}> Edit </button>
+                      </div>
                     </td>
                   </tr>
-                )}
-              </React.Fragment>
-            ))}
+                  {expandedRequirement === item.id && (
+                    <tr>
+                      <td colSpan="8">
+
+                        <div className={styles.tabContainer}>
+
+                          <button
+                            className={
+                              currentTab === "info"
+                                ? styles.activeTab
+                                : styles.tabButton
+                            }
+                            onClick={() =>
+                              setActiveTabs({
+                                ...activeTabs,
+                                [item.id]: "info",
+                              })
+                            }
+                          >
+                            Requirement Info
+                          </button>
+
+                          <button
+                            className={
+                              currentTab === "operations" ? styles.activeTab : styles.tabButton
+                            }
+                            onClick={() =>
+                              setActiveTabs({
+                                ...activeTabs,
+                                [item.id]: "operations",
+                              })
+                            }
+                          >
+                            Operations
+                          </button>
+
+                          <button
+                            className={currentTab === "quotations" ? styles.activeTab : styles.tabButton}
+                            onClick={() => setActiveTabs({ ...activeTabs, [item.id]: "quotations", })}>
+                            Quotations
+                          </button>
+                        </div>
+
+                        <div className={styles.requirementDetails}>
+
+                          {currentTab === "info" && (
+
+                            <div className={styles.detailCard}>
+                              <h3>Requirement Information</h3>
+
+                              <div className={styles.detailRow}>
+                                <span>Requirement ID</span>
+                                <strong>{item.id}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Requested By</span>
+                                <strong>{item.requestedBy}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Department</span>
+                                <strong>{item.department}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Created On</span>
+                                <strong>{item.createdOn}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Priority</span>
+                                <strong>{item.priority}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Status</span>
+                                <strong>{item.status}</strong>
+                              </div>
+                            </div>
+
+                          )}
+
+                          {currentTab === "info" && (
+
+                            <div className={styles.detailCard}>
+                              <h3>Machine Details</h3>
+
+                              <div className={styles.detailRow}>
+                                <span>Machine Type</span>
+                                <strong>{item.machine}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Capacity Required</span>
+                                <strong>{item.capacity}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Quantity Required</span>
+                                <strong>{item.quantity}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Operators Required</span>
+                                <strong>{item.operators}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Expected Utilization</span>
+                                <strong>{item.utilization}</strong>
+                              </div>
+                            </div>
+                          )}
+
+                          {currentTab === "operations" && (
+                            <div className={styles.detailCard}>
+                              <h3>Schedule Details</h3>
+
+                              <div className={styles.detailRow}>
+                                <span>From Date</span>
+                                <strong>{formatDate(item.fromDate)}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>To Date</span>
+                                <strong>{formatDate(item.toDate)}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Duration</span>
+                                <strong>{item.duration} Days</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Shift Type</span>
+                                <strong>{item.shift}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Working Hours</span>
+                                <strong>{item.workHours}</strong>
+                              </div>
+                            </div>
+                          )}
+
+                          {currentTab === "operations" && (
+                            <div className={styles.detailCard}>
+                              <h3>Operational Details</h3>
+
+                              <div className={styles.detailRow}>
+                                <span>Operators Required</span>
+                                <strong>{item.operators}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Nature of Work</span>
+                                <strong>{item.natureOfWork}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Expected Utilization</span>
+                                <strong>{item.utilization}</strong>
+                              </div>
+
+                              <div className={styles.detailRow}>
+                                <span>Site Conditions</span>
+                                <strong>{item.siteCondition}</strong>
+                              </div>
+                            </div>
+                          )}
+
+                          {currentTab === "quotations" && (
+                            <div className={styles.detailCard}>
+                              <h3>Vendor Quotations</h3>
+
+                              <table className={styles.quotationMiniTable}>
+                                <thead>
+                                  <tr>
+                                    <th>Vendor</th>
+                                    <th>Price</th>
+                                    <th>Delivery</th>
+                                    <th>Rating</th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  {item.quotations.map((quote, index) => (
+                                    <tr key={index}>
+                                      <td>{quote.vendor}</td>
+                                      <td>{quote.price}</td>
+                                      <td>{quote.delivery}</td>
+                                      <td>⭐ {quote.rating}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+
+                              {item.quotations.length > 1 && (
+                                <div className={styles.recommendationBanner}>
+                                  <h4>🏆 Recommended Vendor</h4>
+
+                                  <p>
+                                    {item.quotations.reduce((best, current) =>
+                                      current.rating > best.rating
+                                        ? current
+                                        : best
+                                    ).vendor}
+                                  </p>
+
+                                  <small>
+                                    Best vendor rating among available quotations.
+                                  </small>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                        </div>
+
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
+              )
+            })}
           </tbody>
         </table>
       </section>

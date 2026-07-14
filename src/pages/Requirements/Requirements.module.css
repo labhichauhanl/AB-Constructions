@@ -375,3 +375,62 @@
   font-size: 14px;
   margin: 0;
 }
+
+.tabContainer{
+    display:flex;
+    gap:16px;
+    width:100%;
+    margin-bottom:28px;
+}
+
+.tabButton,
+.activeTab{
+    flex:1;
+    padding:16px 24px;
+    border:none;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .2s ease;
+}
+
+.tabButton{
+    background:#f3f4f6;
+    color:#6b7280;
+}
+
+.tabButton:hover{
+    background:#e5e7eb;
+}
+
+.activeTab{
+    background:#f4b400;
+    color:white;
+}
+
+.quotationMiniTable{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.quotationMiniTable th,
+.quotationMiniTable td{
+    padding:12px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+}
+
+.recommendationBanner{
+    margin-top:24px;
+    padding:18px;
+    border-radius:14px;
+    background:#dcfce7;
+    border:1px solid #bbf7d0;
+}
+
+.recommendationBanner h4{
+    color:#15803d;
+    margin-bottom:8px;
+}
