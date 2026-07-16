@@ -4,6 +4,7 @@ import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const requirementData = [
   {
@@ -144,6 +145,7 @@ function Requirements() {
   const projects = ["All", ...new Set(requirementData.map(req => req.project))];
   const machines = ["All", ...new Set(requirementData.map(req => req.machine))];
   const requesters = ["All", ...new Set(requirementData.map(req => req.requestedBy))];
+  const navigate = useNavigate();
 
   const filteredRequirements = requirementData.filter(req => {
 
@@ -396,9 +398,14 @@ function Requirements() {
 
                     <td>
                       <div className={styles.actionButtons}>
-                        <button className={styles.viewButton}
-                          onClick={() => setExpandedRequirement(expandedRequirement === item.id ? null : item.id)}>
-                          {expandedRequirement === item.id ? "Hide" : "View"} </button>
+                        <button
+                          className={styles.viewButton}
+                          onClick={() =>
+                            navigate(`/requirements/${item.id}`)
+                          }>
+                          View Details →
+                        </button>
+
                         <button className={styles.editButton}> Edit </button>
                       </div>
                     </td>

@@ -15,6 +15,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Machines from "../pages/Machines/Machines";
 import MachineAvailability from "../pages/MachineAvailability/MachineAvailability";
 import MachineUtilisation from "../pages/MachineUtilisation/MachineUtilisation";
+import RequirementDetails from "../pages/Requirements/RequirementDetails";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -86,7 +87,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <Machines/>
+                <Machines />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -97,7 +98,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <MachineAvailability/>
+                <MachineAvailability />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -108,7 +109,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <MachineUtilisation/>
+                <MachineUtilisation />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -119,7 +120,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <Invoices/>
+                <Invoices />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -130,7 +131,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <Reports/>
+                <Reports />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -141,7 +142,7 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <DashboardLayout>
-                <Users/>
+                <Users />
               </DashboardLayout>
             </ProtectedRoute>
           }
@@ -151,6 +152,17 @@ function AppRoutes() {
           path="/signup"
           element={
             <Signup />
+          }
+        />
+
+        <Route
+          path="/requirements/:id"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <RequirementDetails />
+              </ DashboardLayout >
+            </ ProtectedRoute >
           }
         />
 
