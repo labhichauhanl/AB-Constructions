@@ -16,6 +16,7 @@ import Machines from "../pages/Machines/Machines";
 import MachineAvailability from "../pages/MachineAvailability/MachineAvailability";
 import MachineUtilisation from "../pages/MachineUtilisation/MachineUtilisation";
 import RequirementDetails from "../pages/Requirements/RequirementDetails";
+import QuotationDetails from "../pages/Quotations/QuotationDetails";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -138,6 +139,17 @@ function AppRoutes() {
         />
 
         <Route
+          path="/quotations/:id"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <QuotationDetails />
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/users"
           element={
             <ProtectedRoute>
@@ -151,7 +163,11 @@ function AppRoutes() {
         <Route
           path="/signup"
           element={
-            <Signup />
+            <ProtectedRoute>
+              <DashboardLayout>
+                <Signup />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
 

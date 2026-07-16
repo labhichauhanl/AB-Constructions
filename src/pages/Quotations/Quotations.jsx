@@ -4,6 +4,7 @@ import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import StarIcon from "@mui/icons-material/Star";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const quotationData = [
   {
@@ -143,7 +144,7 @@ function Quotations() {
   const [selectedMachine, setSelectedMachine] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
   const [sortBy, setSortBy] = useState("Created Date");
-  const [expandedQuotation, setExpandedQuotation] = useState(null);
+  const navigate = useNavigate();
 
   const vendors = ["All", ...new Set(quotationData.map(q => q.vendor))];
   const projects = ["All", ...new Set(quotationData.map(q => q.project))];
@@ -328,8 +329,10 @@ function Quotations() {
                     <div className={styles.actionButtons}>
                       <button
                         className={styles.viewButton}
-                        onClick={() => setExpandedQuotation(expandedQuotation === quote.quoteId ? null : quote.quoteId)}>
-                        {expandedQuotation === quote.quoteId ? "Hide" : "View"}
+                        onClick={() =>
+                          navigate(`/quotations/${quote.quoteId}`)
+                        }>
+                        View Details
                       </button>
 
                       <button className={styles.editButton}>
@@ -338,141 +341,6 @@ function Quotations() {
                     </div>
                   </td>
                 </tr>
-                {expandedQuotation === quote.quoteId && (
-                  <tr>
-                    <td colSpan="8">
-                      <div className={styles.quotationDetails}>
-
-                        <div className={styles.detailCard}>
-                          <h3>Vendor Information</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Vendor Name</span>
-                            <strong>{quote.vendor}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Contact Person</span>
-                            <strong>{quote.contactPerson}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Phone Number</span>
-                            <strong>{quote.phone}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Email Address</span>
-                            <strong>{quote.email}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Vendor Rating</span>
-                            <strong>
-                              ⭐ {quote.vendorRating}
-                            </strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Pricing Breakdown</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Machine Rental</span>
-                            <strong>₹{quote.rentalCost.toLocaleString("en-IN")}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Transportation</span>
-                            <strong>₹{quote.transportationCost.toLocaleString("en-IN")}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Operator Charges</span>
-                            <strong>₹{quote.operatorCharges.toLocaleString("en-IN")}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Taxes</span>
-                            <strong>₹{quote.taxes.toLocaleString("en-IN")}</strong>
-                          </div>
-
-                          <div className={`${styles.detailRow} ${styles.totalRow}`}>
-                            <span>Total Cost</span>
-                            <strong>₹{quote.totalCost.toLocaleString("en-IN")}</strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Delivery Details</h3>
-
-                          <div className={styles.detailRow}>
-                            <span>Delivery Time</span>
-                            <strong>{quote.deliveryTime}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Pickup Date</span>
-                            <strong>{new Date(quote.pickupDate).toLocaleDateString("en-IN", {
-                              day: "numeric",
-                              month: "short",
-                              year: "numeric",
-                            })}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Availability</span>
-                            <strong
-                              className={quote.availability === "Available" ? styles.availableText : styles.unavailableText}>
-                              {quote.availability}
-                            </strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Mobilization Time</span>
-                            <strong>{quote.mobilizationTime}</strong>
-                          </div>
-                        </div>
-
-                        <div className={styles.detailCard}>
-                          <h3>Commercial Terms</h3>
-                          <div className={styles.detailRow}>
-                            <span>Payment Terms</span>
-                            <strong>{quote.paymentTerms}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Security Deposit</span>
-                            <strong>{quote.securityDeposit}</strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Fuel Included</span>
-                            <strong className={quote.fuelIncluded ? styles.included : styles.notIncluded}>
-                              {quote.fuelIncluded ? "Yes" : "No"}
-                            </strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Operator Included</span>
-                            <strong className={ quote.operatorIncluded ? styles.included : styles.notIncluded}>
-                              {quote.operatorIncluded ? "Yes" : "No"}
-                            </strong>
-                          </div>
-
-                          <div className={styles.detailRow}>
-                            <span>Insurance Included</span>
-                            <strong
-                              className={ quote.insuranceIncluded ? styles.included : styles.notIncluded }>
-                              {quote.insuranceIncluded ? "Yes" : "No"}
-                            </strong>
-                          </div>
-                        </div>
-
-                      </div>
-                    </td>
-                  </tr>
-                )}
               </React.Fragment>
             ))}
           </tbody>
