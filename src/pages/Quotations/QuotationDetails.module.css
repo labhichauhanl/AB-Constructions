@@ -64,3 +64,135 @@
 .backButton:hover{
     transform:translateY(-3px);
 }
+
+.kpiGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-top:30px;
+}
+
+.kpiCard{
+    background:white;
+    border:1px solid rgba(255,214,10,.15);
+    border-radius:22px;
+    padding:24px;
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.05);
+    margin-top: 10px;
+    transition:all .3s ease;
+}
+
+.kpiCard:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 16px 32px rgba(15,23,42,.1);
+    cursor: pointer;
+    background:rgba(255,248,214,1);
+}
+
+.kpiCard h4{
+    color:black;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.kpiCard h2{
+    color:var(--primary-color);
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.kpiCard p{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.comparisonSection{
+    background:white;
+    border-radius:22px;
+    padding:28px;
+    border:1px solid #ececec;
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.05);
+        margin-top: 50px;
+}
+
+.comparisonSection h2{
+    margin-bottom:24px;
+}
+
+.comparisonTable{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.comparisonTable th{
+    background:rgba(255,248,214,.7);
+    padding:18px;
+    text-align:center;
+    color:#374151;
+    font-weight:700;
+    border-bottom:2px solid #e5e7eb;
+}
+
+.comparisonTable td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #f3f4f6;
+}
+
+.comparisonTable td:first-child{
+    text-align:left;
+    font-weight:600;
+    color:#6b7280;
+}
+
+.comparisonTable tbody tr:hover{
+    background:rgba(255,248,214,1);
+    cursor: pointer;
+}
+
+.actionSection{
+    background:white;
+    border-radius:22px;
+    padding:28px;
+    border:1px solid #ececec;
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.05);
+}
+
+.actionSection h2{
+    margin-bottom:24px;
+}
+
+.actionButtons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.primaryAction,
+.secondaryAction{
+    border:none;
+    padding:14px 24px;
+    border-radius:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .3s ease;
+}
+
+.primaryAction{
+    background:var(--primary-color);
+    color:black;
+}
+
+.secondaryAction{
+    background:#f3f4f6;
+    color:#374151;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover{
+    transform:translateY(-3px);
+}
