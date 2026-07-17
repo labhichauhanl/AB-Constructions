@@ -1,17 +1,7 @@
-.detailsPage{
-    padding:30px;
-}
-
-.detailsPage{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-}
-
 .headerSection{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
+    align-items:center;
     background:linear-gradient(
         135deg,
         rgba(255,248,214,.95),
@@ -20,65 +10,57 @@
     padding:32px;
     border-radius:24px;
     border:1px solid rgba(255,214,10,.2);
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,.05);
 }
 
-.quoteId{
+.requirementId{
     font-size:14px;
     font-weight:700;
     color:#6b7280;
 }
 
 .headerInfo h1{
-    margin-top:8px;
+    margin-top:10px;
     font-size:38px;
+    color:var(--text-primary);
 }
 
 .headerInfo h2{
-    margin-top:10px;
+    margin-top:8px;
     color:var(--primary-color);
 }
 
 .headerInfo p{
-    margin-top:8px;
-    font-size:18px;
-    color:#6b7280;
-}
-
-.requestInfo{
-    display:inline-block;
     margin-top:12px;
-    color:#9ca3af;
+    color:#6b7280;
+    font-size:16px;
 }
 
-.headerButtons{
+.headerActions{
     display:flex;
     gap:16px;
 }
 
-.editButton,
+.compareButton,
 .backButton{
     border:none;
     padding:14px 24px;
     border-radius:14px;
-
     font-weight:600;
     cursor:pointer;
-
     transition:all .3s ease;
 }
 
-.editButton{
+.compareButton{
     background:var(--primary-color);
     color:black;
 }
 
 .backButton{
-    background:#f3f4f6;
+    background:white;
 }
 
-.editButton:hover,
+.compareButton:hover,
 .backButton:hover{
     transform:translateY(-3px);
 }
