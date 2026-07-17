@@ -330,7 +330,7 @@ function Quotations() {
                       <button
                         className={styles.viewButton}
                         onClick={() =>
-                          navigate(`/quotations/${quote.quoteId}`)
+                          navigate(`/quotations/${quote.requirementId}`)
                         }>
                         View Details
                       </button>
