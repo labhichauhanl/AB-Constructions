@@ -1,105 +1,160 @@
 import styles from "./Invoices.module.css";
+import DescriptionIcon from "@mui/icons-material/Description";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import { useState } from "react";
+import React from "react";
 
-const invoices = [
+const financeKPIs = [
   {
-    id: 1,
-    invoiceNo: "INV-001",
-    project: "Commercial Complex",
-    amount: "₹1,25,000",
-    dueDate: "15 Jun 2026",
-    status: "Paid",
+    title: "Invoices Raised",
+    value: "₹1.28 Cr",
+    subtitle: "+12 this month",
+    icon: DescriptionIcon,
+    color: "#FFC107",
+    type: "invoiceRaised",
   },
   {
-    id: 2,
-    invoiceNo: "INV-002",
-    project: "Luxury Villa Construction",
-    amount: "₹85,000",
-    dueDate: "20 Jun 2026",
-    status: "Pending",
+    title: "Invoice Receipts",
+    value: "₹95 L",
+    subtitle: "74% collected",
+    icon: PaymentsIcon,
+    color: "#22C55E",
+    type: "invoiceReceipt"
   },
   {
-    id: 3,
-    invoiceNo: "INV-003",
-    project: "Highway Expansion",
-    amount: "₹2,50,000",
-    dueDate: "25 Jun 2026",
-    status: "Overdue",
+    title: "Bills Received",
+    value: "₹62 L",
+    subtitle: "18 Vendor Bills",
+    icon: ReceiptLongIcon,
+    color: "#3B82F6",
+    type: "billReceived"
+  },
+  {
+    title: "Payments Completed",
+    value: "₹48 L",
+    subtitle: "14 Payments Cleared",
+    icon: TaskAltIcon,
+    color: "#10B981",
+    type: "paymentCompleted"
+  },
+  {
+    title: "Outstanding Receivables",
+    value: "₹33 L",
+    subtitle: "8 Pending Invoices",
+    icon: TrendingUpIcon,
+    color: "#F59E0B",
+    type: "receivable"
+  },
+  {
+    title: "Outstanding Payables",
+    value: "₹14 L",
+    subtitle: "5 Bills Pending",
+    icon: TrendingDownIcon,
+    color: "#EF4444",
+    type: "payable"
+  },
+];
+
+const financeSummary = [
+  {
+    title: "Incoming Money",
+    color: "#22C55E",
+    steps: [
+      { label: "Invoices Raised", value: "₹1.28 Cr" },
+      { label: "Payments Received", value: "₹95 L" },
+      { label: "Outstanding Receivables", value: "₹33 L" },
+    ],
+  },
+  {
+    title: "Outgoing Money",
+    color: "#EF4444",
+    steps: [
+      { label: "Bills Received", value: "₹62 L" },
+      { label: "Payments Completed", value: "₹48 L" },
+      { label: "Outstanding Payables", value: "₹14 L" },
+    ],
   },
 ];
 
 function Invoices() {
+
+  const [selectedType, setSelectedType] = useState("All");
+
   return (
     <div className={styles.invoicesPage}>
-      <div className={styles.pageHeader}>
-        <div>
-          <h1>Invoices</h1>
+
+      <section className={styles.headerSection}>
+
+        <div className={styles.headerContent}>
+          <span className={styles.pageTag}>Finance Management</span>
+          <h1>Finance & Billing</h1>
           <p>
-            Manage billing and payment tracking.
+            Track invoices, vendor bills, payment collections,
+            and outstanding balances across all construction projects.
           </p>
         </div>
 
-        <button className={styles.addButton}>
-         + Create Invoice
-        </button>
-      </div>
+        <div className={styles.headerActions}>
+          <button className={styles.primaryButton}>+ Create Invoice</button>
+          <button className={styles.secondaryButton}>+ Record Payment</button>
+        </div>
 
-      <div className={styles.searchWrapper}>
-        <input
-          type="text"
-          placeholder="Search invoices..."
-          className={styles.searchInput}
-        />
-      </div>
-
-      <section className={styles.tableSection}>
-        <table className={styles.invoiceTable}>
-          <thead>
-            <tr>
-              <th>Invoice No</th>
-              <th>Project</th>
-              <th>Amount</th>
-              <th>Due Date</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {invoices.map((invoice) => (
-              <tr key={invoice.id}>
-                <td>{invoice.invoiceNo}</td>
-                <td>{invoice.project}</td>
-                <td>{invoice.amount}</td>
-                <td>{invoice.dueDate}</td>
-
-                <td>
-                  <span
-                    className={`${styles.statusBadge} ${styles[
-                      invoice.status
-                        .replace(/\s+/g, "")
-                        .toLowerCase()
-                      ]
-                      }`}
-                  >
-                    {invoice.status}
-                  </span>
-                </td>
-                <td>
-                  <div className={styles.actionButtons}>
-                    <button className={styles.editButton}>
-                      Edit
-                    </button>
-
-                    <button className={styles.downloadButton}>
-                      Download
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </section>
+
+      {/* KPI Cards */}
+      <section className={styles.kpiSection}>
+        {financeKPIs.map((card) => {
+          const Icon = card.icon;
+
+          return (
+            <div
+              key={card.title}
+              className={styles.kpiCard}
+            >
+              <div
+                className={styles.iconWrapper}
+                style={{ backgroundColor: `${card.color}20` }}
+              >
+                <Icon
+                  className={styles.kpiIcon}
+                  style={{ color: card.color }}
+                />
+              </div>
+
+              <div className={styles.kpiContent}>
+                <span>{card.title}</span>
+                <h2>{card.value}</h2>
+                <p>{card.subtitle}</p>
+              </div>
+            </div>
+          );
+        })}
+      </section>
+
+      {/* Transaction Filter */}
+      <section className={styles.filterSection}>
+
+      </section>
+
+      {/* Finance Table */}
+      <section className={styles.tableSection}>
+
+      </section>
+
+      {/* Recent Activity */}
+      <section className={styles.activitySection}>
+
+      </section>
+
+      {/* Alerts */}
+      <section className={styles.alertSection}>
+
+      </section>
+
     </div>
   );
 }
