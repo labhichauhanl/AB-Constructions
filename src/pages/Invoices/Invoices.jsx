@@ -80,9 +80,76 @@ const financeSummary = [
   },
 ];
 
+const transactionTypes = [
+  "All Transactions",
+  "Invoices Raised",
+  "Invoice Receipts",
+  "Bills Received",
+  "Bill Receipts",
+  "Payments Completed",
+  "Payments Left",
+];
+
+const statusOptions = [
+  "All Status",
+  "Paid",
+  "Pending",
+  "Overdue",
+  "Processing",
+];
+
+const financeTransactions = [
+  {
+    id: "INV-001",
+    type: "Invoice Raised",
+    project: "Metro Tower",
+    party: "ABC Developers",
+    amount: "₹12,50,000",
+    date: "12 Jul 2026",
+    status: "Paid",
+    payment: "Bank Transfer",
+  },
+
+  {
+    id: "INV-002",
+    type: "Invoice Raised",
+    project: "Mall Project",
+    party: "XYZ Builders",
+    amount: "₹8,20,000",
+    date: "15 Jul 2026",
+    status: "Pending",
+    payment: "-",
+  },
+
+  {
+    id: "BIL-014",
+    type: "Bills Received",
+    project: "Airport Expansion",
+    party: "JCB Rentals",
+    amount: "₹3,40,000",
+    date: "18 Jul 2026",
+    status: "Paid",
+    payment: "UPI",
+  },
+
+  {
+    id: "PAY-021",
+    type: "Payments Left",
+    project: "Expressway",
+    party: "Ultra Cement",
+    amount: "₹6,90,000",
+    date: "21 Jul 2026",
+    status: "Overdue",
+    payment: "-",
+  },
+];
+
 function Invoices() {
 
   const [selectedType, setSelectedType] = useState("All");
+  const [transactionType, setTransactionType] = useState("All Transactions");
+  const [status, setStatus] = useState("All Status");
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className={styles.invoicesPage}>
@@ -138,23 +205,74 @@ function Invoices() {
       {/* Transaction Filter */}
       <section className={styles.filterSection}>
 
-      </section>
+    <select
+        value={transactionType}
+        onChange={(e)=>setTransactionType(e.target.value)}
+        className={styles.filterSelect}>
+        {transactionTypes.map(type=>(
+            <option key={type}>{type}</option>
+        ))}
+    </select>
+
+
+    <input
+        type="text"
+        placeholder="Search Invoice, Vendor, Project..."
+        value={searchTerm}
+        onChange={(e)=>setSearchTerm(e.target.value)}
+        className={styles.searchInput}/>
+
+
+    <select
+        value={status}
+        onChange={(e)=>setStatus(e.target.value)}
+        className={styles.filterSelect}>
+        {statusOptions.map(status=>(
+            <option key={status}>{status}</option>
+        ))}
+    </select>
+    <button className={styles.exportButton}>Export</button>
+
+</section>
 
       {/* Finance Table */}
       <section className={styles.tableSection}>
-
-      </section>
-
-      {/* Recent Activity */}
-      <section className={styles.activitySection}>
-
-      </section>
-
-      {/* Alerts */}
-      <section className={styles.alertSection}>
-
-      </section>
-
+        <h2>Finance Table</h2>
+    <table className={styles.financeTable}>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Transaction</th>
+                <th>Project</th>
+                <th>Client / Vendor</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {financeTransactions.map((item) => (
+                <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.type}</td>
+                    <td>{item.project}</td>
+                    <td>{item.party}</td>
+                    <td>{item.amount}</td>
+                    <td>{item.date}</td>
+                    <td>
+                        <span className={`${styles.statusBadge} ${styles[item.status.toLowerCase()]}`}>
+                            {item.status}
+                        </span>
+                    </td>
+                    <td>
+                        <button className={styles.viewButton}>View Details</button>
+                    </td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</section>
     </div>
   );
 }
