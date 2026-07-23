@@ -118,9 +118,31 @@ function QuotationDetails() {
                 <td>💰 Cheapest</td>
                 <td>⚡ Fastest</td>
             </tr>
-
         </tbody>
     </table>
+</section>
+
+    <section className={styles.actionSection}>
+    <h2>Procurement Actions</h2>
+    <div className={styles.actionButtons}>
+
+        <button className={styles.primaryAction}>
+            Approve Vendor
+        </button>
+
+        <button className={styles.secondaryAction}>
+            Send for Negotiation
+        </button>
+
+        <button className={styles.secondaryAction}>
+            Request Revised Quote
+        </button>
+
+        <button className={styles.endAction}>
+            Reject All Quotations
+        </button>
+
+    </div>
 </section>
 
         </>

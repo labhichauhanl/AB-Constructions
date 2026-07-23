@@ -1,198 +1,250 @@
-.headerSection{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:linear-gradient(
-        135deg,
-        rgba(255,248,214,.95),
-        rgba(255,243,184,.9)
-    );
-    padding:32px;
-    border-radius:24px;
-    border:1px solid rgba(255,214,10,.2);
-    box-shadow: 0 12px 28px rgba(0,0,0,.05);
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg,
+            rgba(255, 248, 214, .95),
+            rgba(255, 243, 184, .9));
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 214, 10, .2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .05);
 }
 
-.requirementId{
-    font-size:14px;
-    font-weight:700;
-    color:#6b7280;
+.requirementId {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6b7280;
 }
 
-.headerInfo h1{
-    margin-top:10px;
-    font-size:38px;
-    color:var(--text-primary);
+.headerInfo h1 {
+    margin-top: 10px;
+    font-size: 38px;
+    color: var(--text-primary);
 }
 
-.headerInfo h2{
-    margin-top:8px;
-    color:var(--primary-color);
+.headerInfo h2 {
+    margin-top: 8px;
+    color: var(--primary-color);
 }
 
-.headerInfo p{
-    margin-top:12px;
-    color:#6b7280;
-    font-size:16px;
+.headerInfo p {
+    margin-top: 12px;
+    color: #6b7280;
+    font-size: 16px;
 }
 
-.headerActions{
-    display:flex;
-    gap:16px;
+.headerActions {
+    display: flex;
+    gap: 16px;
 }
 
 .compareButton,
-.backButton{
-    border:none;
-    padding:14px 24px;
-    border-radius:14px;
-    font-weight:600;
-    cursor:pointer;
-    transition:all .3s ease;
+.backButton {
+    border: none;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
 }
 
-.compareButton{
-    background:var(--primary-color);
-    color:black;
+.compareButton {
+    background: var(--primary-color);
+    color: black;
 }
 
-.backButton{
-    background:white;
+.backButton {
+    background: white;
 }
 
 .compareButton:hover,
-.backButton:hover{
-    transform:translateY(-3px);
+.backButton:hover {
+    transform: translateY(-3px);
 }
 
-.kpiGrid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
-    margin-top:30px;
+.kpiGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 30px;
 }
 
-.kpiCard{
-    background:white;
-    border:1px solid rgba(255,214,10,.15);
-    border-radius:22px;
-    padding:24px;
+.kpiCard {
+    background: white;
+    border: 1px solid rgba(255, 214, 10, .15);
+    border-radius: 22px;
+    padding: 24px;
     box-shadow:
-        0 8px 24px rgba(15,23,42,.05);
+        0 8px 24px rgba(15, 23, 42, .05);
     margin-top: 10px;
-    transition:all .3s ease;
+    transition: all .3s ease;
 }
 
-.kpiCard:hover{
-    transform:translateY(-6px);
+.kpiCard:hover {
+    transform: translateY(-6px);
     box-shadow:
-        0 16px 32px rgba(15,23,42,.1);
+        0 16px 32px rgba(15, 23, 42, .1);
     cursor: pointer;
-    background:rgba(255,248,214,1);
+    background: rgba(255, 248, 214, 1);
 }
 
-.kpiCard h4{
-    color:black;
-    font-size:14px;
-    margin-bottom:18px;
+.kpiCard h4 {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.kpiCard h2{
-    color:var(--primary-color);
-    font-size:34px;
-    margin-bottom:8px;
+.kpiCard h2 {
+    color: var(--primary-color);
+    font-size: 34px;
+    margin-bottom: 8px;
 }
 
-.kpiCard p{
-    color:#6b7280;
-    font-size:14px;
+.kpiCard p {
+    color: #6b7280;
+    font-size: 14px;
 }
 
-.comparisonSection{
-    background:white;
-    border-radius:22px;
-    padding:28px;
-    border:1px solid #ececec;
+.comparisonSection {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    border: 1px solid #ececec;
     box-shadow:
-        0 8px 24px rgba(15,23,42,.05);
-        margin-top: 50px;
+        0 8px 24px rgba(15, 23, 42, .05);
+    margin-top: 50px;
 }
 
-.comparisonSection h2{
-    margin-bottom:24px;
+.comparisonSection h2 {
+    margin-bottom: 24px;
 }
 
-.comparisonTable{
-    width:100%;
-    border-collapse:collapse;
+.comparisonTable {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.comparisonTable th{
-    background:rgba(255,248,214,.7);
-    padding:18px;
-    text-align:center;
-    color:#374151;
-    font-weight:700;
-    border-bottom:2px solid #e5e7eb;
+.comparisonTable th {
+    background: rgba(255, 248, 214, .7);
+    padding: 18px;
+    text-align: center;
+    color: #374151;
+    font-weight: 700;
+    border-bottom: 2px solid #e5e7eb;
 }
 
-.comparisonTable td{
-    padding:18px;
-    text-align:center;
-    border-bottom:1px solid #f3f4f6;
+.comparisonTable td {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #f3f4f6;
 }
 
-.comparisonTable td:first-child{
-    text-align:left;
-    font-weight:600;
-    color:#6b7280;
+.comparisonTable td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #6b7280;
 }
 
-.comparisonTable tbody tr:hover{
-    background:rgba(255,248,214,1);
+.comparisonTable tbody tr:hover {
+    background: rgba(255, 248, 214, 1);
     cursor: pointer;
 }
 
-.actionSection{
-    background:white;
-    border-radius:22px;
-    padding:28px;
-    border:1px solid #ececec;
+.actionSection {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    border: 1px solid #ececec;
     box-shadow:
-        0 8px 24px rgba(15,23,42,.05);
+        0 8px 24px rgba(15, 23, 42, .05);
+    margin-top: 20px;
 }
 
-.actionSection h2{
-    margin-bottom:24px;
+.actionSection h2 {
+    margin-bottom: 24px;
 }
 
-.actionButtons{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
+.actionButtons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 .primaryAction,
-.secondaryAction{
-    border:none;
-    padding:14px 24px;
-    border-radius:14px;
-    font-weight:600;
-    cursor:pointer;
-    transition:all .3s ease;
+.secondaryAction,
+.endAction {
+    border: none;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
 }
 
-.primaryAction{
-    background:var(--primary-color);
-    color:black;
+.primaryAction {
+    background: var(--primary-color);
+    color: black;
 }
 
-.secondaryAction{
-    background:#f3f4f6;
-    color:#374151;
+.secondaryAction {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.endAction:hover {
+    cursor: pointer;
+    transform: translateY(-3PX);
+    background: rgba(255, 248, 214, 1);
 }
 
 .primaryAction:hover,
-.secondaryAction:hover{
-    transform:translateY(-3px);
+.secondaryAction:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 248, 214, 1);
+    color: black;
+}
+
+.actionSection {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    border: 1px solid #ececec;
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, .05);
+}
+
+.actionSection h2 {
+    margin-bottom: 24px;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.primaryAction,
+.secondaryAction {
+    border: none;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.primaryAction {
+    background: var(--primary-color);
+    color: black;
+}
+
+.secondaryAction {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+    transform: translateY(-3px);
 }
