@@ -121,14 +121,14 @@
     border:1px solid #ececec;
     transition:.3s;
     cursor:pointer;
-    box-shadow:
-        0 8px 20px rgba(15,23,42,.05);
+    box-shadow: 0 8px 20px rgba(15,23,42,.05);
+    color: --var(primary-color);
 }
 
 .kpiCard:hover{
     transform:translateY(-5px);
-    box-shadow:
-        0 14px 28px rgba(15,23,42,.10);
+    box-shadow: 0 14px 28px rgba(15,23,42,.10);
+    background: rgba(255, 248, 214, 0.7);
 }
 
 .iconWrapper{
@@ -153,19 +153,19 @@
 
 .kpiContent span{
     font-size:14px;
-    color:#6b7280;
-    font-weight:500;
+    color:black;
+    font-weight: bold;
 }
 
 .kpiContent h2{
-    font-size:28px;
+    font-size:35px;
     margin:0;
-    color:var(--text-primary);
+    color: var(--primary-color);
 }
 
 .kpiContent p{
     font-size:13px;
-    color:#9ca3af;
+    color:#535458;
     margin:0;
 }
 
@@ -304,4 +304,29 @@
 
 .viewButton:hover{
     transform:translateY(-2px);
+}
+
+.noData {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.noDataContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.noDataContent h3 {
+  margin: 20px 0px 10px 0px;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.noDataContent p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+  max-width: 400px;
 }

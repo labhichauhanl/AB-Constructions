@@ -82,10 +82,10 @@ const financeSummary = [
 
 const transactionTypes = [
   "All Transactions",
-  "Invoices Raised",
-  "Invoice Receipts",
+  "Invoice Raised",
+  "Invoice Receipt",
   "Bills Received",
-  "Bill Receipts",
+  "Bill Receipt",
   "Payments Completed",
   "Payments Left",
 ];
@@ -150,6 +150,15 @@ function Invoices() {
   const [transactionType, setTransactionType] = useState("All Transactions");
   const [status, setStatus] = useState("All Status");
   const [searchTerm, setSearchTerm] = useState("");
+  const filteredTransactions = financeTransactions.filter((item) => {
+    const matchesType = transactionType === "All Transactions" || item.type === transactionType;
+    const matchesStatus = status === "All Status" || item.status === status;
+    const matchesSearch =
+      item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.party.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesType && matchesStatus && matchesSearch;
+  });
 
   return (
     <div className={styles.invoicesPage}>
@@ -205,74 +214,93 @@ function Invoices() {
       {/* Transaction Filter */}
       <section className={styles.filterSection}>
 
-    <select
-        value={transactionType}
-        onChange={(e)=>setTransactionType(e.target.value)}
-        className={styles.filterSelect}>
-        {transactionTypes.map(type=>(
+        <select
+          value={transactionType}
+          onChange={(e) => setTransactionType(e.target.value)}
+          className={styles.filterSelect}>
+          {transactionTypes.map(type => (
             <option key={type}>{type}</option>
-        ))}
-    </select>
+          ))}
+        </select>
 
 
-    <input
-        type="text"
-        placeholder="Search Invoice, Vendor, Project..."
-        value={searchTerm}
-        onChange={(e)=>setSearchTerm(e.target.value)}
-        className={styles.searchInput}/>
+        <input
+          type="text"
+          placeholder="Search Invoice, Vendor, Project..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className={styles.searchInput} />
 
 
-    <select
-        value={status}
-        onChange={(e)=>setStatus(e.target.value)}
-        className={styles.filterSelect}>
-        {statusOptions.map(status=>(
+        <select
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          className={styles.filterSelect}>
+          {statusOptions.map(status => (
             <option key={status}>{status}</option>
-        ))}
-    </select>
-    <button className={styles.exportButton}>Export</button>
+          ))}
+        </select>
+        <button className={styles.exportButton}>Export</button>
 
-</section>
+      </section>
 
       {/* Finance Table */}
       <section className={styles.tableSection}>
         <h2>Finance Table</h2>
-    <table className={styles.financeTable}>
-        <thead>
+        <table className={styles.financeTable}>
+          <thead>
             <tr>
-                <th>ID</th>
-                <th>Transaction</th>
-                <th>Project</th>
-                <th>Client / Vendor</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Action</th>
+              <th>ID</th>
+              <th>Transaction</th>
+              <th>Project</th>
+              <th>Client / Vendor</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
-            {financeTransactions.map((item) => (
+          </thead>
+          <tbody>
+            {filteredTransactions.length > 0 ? (
+              filteredTransactions.map((item) => (
                 <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.type}</td>
-                    <td>{item.project}</td>
-                    <td>{item.party}</td>
-                    <td>{item.amount}</td>
-                    <td>{item.date}</td>
-                    <td>
-                        <span className={`${styles.statusBadge} ${styles[item.status.toLowerCase()]}`}>
-                            {item.status}
-                        </span>
-                    </td>
-                    <td>
-                        <button className={styles.viewButton}>View Details</button>
-                    </td>
+                  <td>{item.id}</td>
+                  <td>{item.type}</td>
+                  <td>{item.project}</td>
+                  <td>{item.party}</td>
+                  <td>{item.amount}</td>
+                  <td>{item.date}</td>
+                  <td>
+                    <span
+                      className={`${styles.statusBadge} ${styles[item.status.toLowerCase()]
+                        }`}
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                  <td>
+                    <button className={styles.viewButton}>
+                      View Details
+                    </button>
+                  </td>
                 </tr>
-            ))}
-        </tbody>
-    </table>
-</section>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="8" className={styles.noData}>
+                  <div className={styles.noDataContent}>
+                    <h3>No Transactions Found</h3>
+                    <p>
+                      No finance records match the selected filters. <br />
+                      Try changing the search or filter options.
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </section>
     </div>
   );
 }
