@@ -1,0 +1,297 @@
+.invoiceDetailsPage{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.headerSection{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+}
+
+.headerLeft{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.backButton{
+    width:max-content;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    color:#6b7280;
+    transition:.2s;
+}
+
+.backButton:hover{
+    color:#f5b301;
+}
+
+.pageTag{
+    width:max-content;
+    padding:6px 14px;
+    border-radius:999px;
+    background:#fff7db;
+    color:#b7791f;
+    font-size:13px;
+    font-weight:600;
+}
+
+.headerLeft h1{
+    margin:0;
+    font-size:34px;
+    color:#111827;
+}
+
+.headerMeta,
+.headerDates{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    color:#6b7280;
+    font-size:15px;
+}
+
+.headerRight{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:20px;
+}
+
+.statusBadge{
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.paid{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.processing{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.overdue{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.actionButtons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primaryButton{
+    background:#f5b301;
+    color:#111827;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s;
+}
+
+.primaryButton:hover{
+    background:#e0a500;
+}
+
+.secondaryButton{
+    background:#fff;
+    border:1px solid #d1d5db;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s;
+}
+
+.secondaryButton:hover{
+    background:#f9fafb;
+}
+
+.summarySection{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.summaryCard{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 8px 24px rgba(15,23,42,.04);
+    transition:.25s;
+}
+
+.summaryCard:hover{
+    transform:translateY(-4px);
+}
+
+.cardTitle{
+    margin:0;
+    color:#6b7280;
+    font-size:14px;
+    font-weight:500;
+}
+
+.cardValue{
+    margin-top:12px;
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:1100px){
+
+    .headerSection{
+        flex-direction:column;
+    }
+
+    .headerRight{
+        width:100%;
+        align-items:flex-start;
+    }
+
+    .summarySection{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .summarySection{
+        grid-template-columns:1fr;
+    }
+
+    .headerMeta,
+    .headerDates{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .actionButtons{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .primaryButton,
+    .secondaryButton{
+        width:100%;
+    }
+}
+
+.heroSection{
+    background:#ffffff;
+    border-radius:24px;
+    padding:32px 40px;
+    border:1px solid #ececec;
+    box-shadow:0 12px 30px rgba(15,23,42,.05);
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.heroTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.heroMiddle h1{
+    margin:0;
+    font-size:42px;
+    font-weight:700;
+    color:#111827;
+}
+
+.projectName{
+    margin-top:10px;
+    font-size:18px;
+    color:#374151;
+}
+
+.clientName{
+    margin-top:6px;
+    color:#6b7280;
+    font-size:16px;
+}
+
+.heroBottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid #ececec;
+    padding-top:24px;
+}
+
+.invoiceDates{
+    display:flex;
+    gap:40px;
+}
+
+.invoiceDates span{
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.summarySection{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.summaryCard{
+    background:white;
+    border-radius:20px;
+    padding:28px;
+    border:1px solid #ececec;
+    transition:.25s;
+    box-shadow: 0 8px 24px rgba(15,23,42,.04);
+}
+
+.summaryCard:hover{
+    transform:translateY(-6px);
+    cursor: pointer;
+    background: rgba(255, 248, 214, 0.7);
+}
+
+.summaryCard p{
+    color:black;
+    font-weight: bold;
+    margin:0;
+    font-size:14px;
+}
+
+.summaryCard h2{
+    margin-top:14px;
+    font-size:34px;
+    color: var(--primary-color);
+}

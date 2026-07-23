@@ -7,6 +7,7 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { useState } from "react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const financeKPIs = [
   {
@@ -148,6 +149,9 @@ function Invoices() {
 
   const [selectedType, setSelectedType] = useState("All");
   const [transactionType, setTransactionType] = useState("All Transactions");
+  const [minAmount, setMinAmount] = useState("");
+  const [maxAmount, setMaxAmount] = useState("");
+  const navigate = useNavigate();
   const [status, setStatus] = useState("All Status");
   const [searchTerm, setSearchTerm] = useState("");
   const filteredTransactions = financeTransactions.filter((item) => {
@@ -231,6 +235,22 @@ function Invoices() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className={styles.searchInput} />
 
+        <input
+          type="number"
+          placeholder="Min Amount"
+          value={minAmount}
+          onChange={(e) => setMinAmount(e.target.value)}
+          className={styles.amountInput}
+        />
+
+        <input
+          type="number"
+          placeholder="Max Amount"
+          value={maxAmount}
+          onChange={(e) => setMaxAmount(e.target.value)}
+          className={styles.amountInput}
+        />
+
 
         <select
           value={status}
@@ -240,7 +260,7 @@ function Invoices() {
             <option key={status}>{status}</option>
           ))}
         </select>
-        <button className={styles.exportButton}>Export</button>
+
 
       </section>
 
@@ -279,7 +299,9 @@ function Invoices() {
                     </span>
                   </td>
                   <td>
-                    <button className={styles.viewButton}>
+                    <button
+                      className={styles.viewButton}
+                      onClick={() => navigate(`/invoice-details/${item.id}`)}>
                       View Details
                     </button>
                   </td>
