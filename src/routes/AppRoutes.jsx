@@ -17,7 +17,6 @@ import MachineAvailability from "../pages/MachineAvailability/MachineAvailabilit
 import MachineUtilisation from "../pages/MachineUtilisation/MachineUtilisation";
 import RequirementDetails from "../pages/Requirements/RequirementDetails";
 import QuotationDetails from "../pages/Quotations/QuotationDetails";
-import InvoiceDetails from "../pages/Invoices/InvoiceDetails";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -112,17 +111,6 @@ function AppRoutes() {
             <ProtectedRoute>
               <DashboardLayout>
                 <MachineUtilisation />
-              </DashboardLayout>
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/invoice-details/:id"
-          element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <InvoiceDetails />
               </DashboardLayout>
             </ProtectedRoute>
           }
