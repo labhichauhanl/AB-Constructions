@@ -157,11 +157,14 @@ function Invoices() {
   const filteredTransactions = financeTransactions.filter((item) => {
     const matchesType = transactionType === "All Transactions" || item.type === transactionType;
     const matchesStatus = status === "All Status" || item.status === status;
+    const amount = Number(item.amount.replace(/[₹,\s]/g, ""));
+    const matchesMinAmount = minAmount === "" || amount >= Number(minAmount);
+    const matchesMaxAmount = maxAmount === "" || amount <= Number(maxAmount);
     const matchesSearch =
       item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.party.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesType && matchesStatus && matchesSearch;
+    return matchesType && matchesStatus && matchesSearch && matchesMinAmount && matchesMaxAmount;
   });
 
   return (
