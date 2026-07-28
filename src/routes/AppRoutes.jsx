@@ -14,6 +14,8 @@ import Signup from "../pages/Signup/Signup";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Machines from "../pages/Machines/Machines";
 import MachineAvailability from "../pages/MachineAvailability/MachineAvailability";
+import InvoiceDetails from "../pages/FinanceDetails/InvoiceDetails";
+import InvoiceRaised from "../pages/FinanceDetails/InvoiceRaised";
 import MachineUtilisation from "../pages/MachineUtilisation/MachineUtilisation";
 import RequirementDetails from "../pages/Requirements/RequirementDetails";
 import QuotationDetails from "../pages/Quotations/QuotationDetails";
@@ -62,6 +64,17 @@ function AppRoutes() {
         />
 
         <Route
+          path="/invoice-details/:id"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <InvoiceDetails />
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/quotations"
           element={
             <ProtectedRoute>
@@ -78,6 +91,17 @@ function AppRoutes() {
             <ProtectedRoute>
               <DashboardLayout>
                 <Jobs />
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/finance-details/invoiceRaised"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <InvoiceRaised />
               </DashboardLayout>
             </ProtectedRoute>
           }
