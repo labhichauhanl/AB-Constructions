@@ -1,10 +1,10 @@
-import styles from "./Invoices.module.css";
 import DescriptionIcon from "@mui/icons-material/Description";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import styles from "./Invoices.module.css";
 import { useState } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -197,6 +197,7 @@ function Invoices() {
             <div
               key={card.title}
               className={styles.kpiCard}
+              onClick={() => navigate(`/finance-details/${card.type}`)}
             >
               <div
                 className={styles.iconWrapper}
