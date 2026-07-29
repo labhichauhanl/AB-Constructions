@@ -24,7 +24,7 @@ const financeKPIs = [
     subtitle: "74% collected",
     icon: PaymentsIcon,
     color: "#22C55E",
-    type: "invoiceReceipt"
+    type: "invoiceReceipts"
   },
   {
     title: "Bills Received",

@@ -19,6 +19,7 @@ import InvoiceRaised from "../pages/FinanceDetails/InvoiceRaised";
 import MachineUtilisation from "../pages/MachineUtilisation/MachineUtilisation";
 import RequirementDetails from "../pages/Requirements/RequirementDetails";
 import QuotationDetails from "../pages/Quotations/QuotationDetails";
+import InvoiceReceipts from "../pages/FinanceDetails/InvoiceReceipts";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -72,6 +73,17 @@ function AppRoutes() {
               </DashboardLayout>
             </ProtectedRoute>
           }
+        />
+
+        <Route
+          path="/finance-details/invoiceReceipts"
+          element={
+          <ProtectedRoute>
+              <DashboardLayout>
+                <InvoiceReceipts />
+              </DashboardLayout>
+            </ProtectedRoute>
+        }
         />
 
         <Route
