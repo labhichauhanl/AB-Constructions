@@ -32,7 +32,7 @@ const financeKPIs = [
     subtitle: "18 Vendor Bills",
     icon: ReceiptLongIcon,
     color: "#3B82F6",
-    type: "billReceived"
+    type: "bills"
   },
   {
     title: "Payments Completed",
