@@ -45,15 +45,11 @@ function BillDetails() {
     return (
 
         <div className={styles.page}>
-
             <section className={styles.hero}>
-
                 <div className={styles.left}>
-
                     <button
                         className={styles.backBtn}
-                        onClick={() => navigate(-1)}
-                    >
+                        onClick={() => navigate(-1)}>
                         <ArrowBackIcon fontSize="small" />
                         Back
                     </button>
@@ -61,7 +57,6 @@ function BillDetails() {
                     <span className={styles.tag}>
                         Finance Management
                     </span>
-
                     <h1>Bill Details</h1>
 
                     <p>
@@ -69,50 +64,35 @@ function BillDetails() {
                     </p>
 
                     <div className={styles.infoGrid}>
-
                         <div>
                             <span>Bill Number</span>
                             <h3>{id}</h3>
                         </div>
-
                         <div>
                             <span>Vendor</span>
                             <h3>{bill.vendor}</h3>
                         </div>
-
                         <div>
                             <span>Project</span>
                             <h3>{bill.project}</h3>
                         </div>
-
                     </div>
-
                 </div>
 
                 <div className={styles.right}>
-
                     <div className={styles.summaryCard}>
-
                         <span>Total Amount</span>
-
                         <h1>{bill.amount}</h1>
-
                         <div className={styles.status}>
-
                             <CheckCircleIcon fontSize="small" />
-
                             {bill.status}
-
                         </div>
-
                         <small>
                             Due on 27 Jul 2026
                         </small>
-
                     </div>
 
                     <div className={styles.actions}>
-
                         <button className={styles.secondaryBtn}>
                             <PrintIcon fontSize="small" />
                             Print
@@ -122,15 +102,11 @@ function BillDetails() {
                             <DownloadIcon fontSize="small" />
                             Download PDF
                         </button>
-
                     </div>
-
                 </div>
-
             </section>
 
             <section className={styles.tabSection}>
-
                 {tabs.map((tab) => (
 
                     <button
@@ -141,9 +117,7 @@ function BillDetails() {
                     >
                         {tab.label}
                     </button>
-
                 ))}
-
             </section>
 
             <section className={styles.contentSection}>
@@ -344,7 +318,6 @@ function BillDetails() {
                                     <button className={styles.viewBtn}>
                                         View
                                     </button>
-
                                     <button className={styles.downloadBtn}>
                                         Download
                                     </button>
@@ -366,7 +339,6 @@ function BillDetails() {
                                         <div className={styles.timelineLine}></div>
                                     )}
                                 </div>
-
                                 <div className={styles.timelineContent}>
                                     <h3>{event.title}</h3>
                                     <p>{event.description}</p>
@@ -376,7 +348,6 @@ function BillDetails() {
                         ))}
                     </div>
                 )}
-
             </section>
         </div>
     );
