@@ -261,3 +261,18 @@
     cursor:pointer;
     font-weight:600;
 }
+
+.overdue{
+    background:#FEE2E2;
+    color:#B91C1C;
+}
+
+.duesoon{
+    background:#3f3d3a;
+    color:#e8e5e3;
+}
+
+.current{
+    background:#DBEAFE;
+    color:#1D4ED8;
+}

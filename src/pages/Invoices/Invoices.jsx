@@ -48,7 +48,7 @@ const financeKPIs = [
     subtitle: "8 Pending Invoices",
     icon: TrendingUpIcon,
     color: "#F59E0B",
-    type: "receivable"
+    type: "receivables"
   },
   {
     title: "Outstanding Payables",
