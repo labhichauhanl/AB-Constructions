@@ -77,129 +77,124 @@ function PaymentsCompleted() {
 
     return (
         <>
-        <section className={styles.hero}>
-    <div className={styles.left}>
+            <section className={styles.hero}>
+                <div className={styles.left}>
 
-        <button
-            className={styles.backBtn}
-            onClick={() => navigate(-1)}>
-            <ArrowBackIcon fontSize="small" />
-            Back
-        </button>
+                    <button
+                        className={styles.backBtn}
+                        onClick={() => navigate(-1)}>
+                        <ArrowBackIcon fontSize="small" />
+                        Back
+                    </button>
 
-        <span className={styles.tag}>
-            Finance Management
-        </span>
+                    <span className={styles.tag}>
+                        Finance Management
+                    </span>
+                    <h1>Payments Completed</h1>
+                    <p>
+                        Track completed vendor payments, monitor transaction history,
+                        and review payment records across all construction projects.
+                    </p>
 
-        <h1>Payments Completed</h1>
+                    <div className={styles.stats}>
+                        <div>
+                            <h1>₹1.92 Cr</h1>
+                            <span>Total Paid</span>
+                        </div>
 
-        <p>
-            Track completed vendor payments, monitor transaction history,
-            and review payment records across all construction projects.
-        </p>
+                        <div>
+                            <h1>94</h1>
+                            <span>Payments Completed</span>
+                        </div>
 
-        <div className={styles.stats}>
-            <div>
-                <h1>₹1.92 Cr</h1>
-                <span>Total Paid</span>
-            </div>
-
-            <div>
-                <h1>94</h1>
-                <span>Payments Completed</span>
-            </div>
-
-            <div>
-                <h1>18 Days</h1>
-                <span>Avg Payment Cycle</span>
-            </div>
-        </div>
-    </div>
-
-    <div className={styles.right}>
-        <button className={styles.secondaryBtn}>
-            <DownloadIcon />
-            Export
-        </button>
-
-        <button className={styles.primaryBtn}>
-            <AddIcon />
-            Create Payment
-        </button>
-    </div>
-</section>
-        <section className={styles.analyticsSection}>
-    {paymentAnalytics.map((item) => {
-        const Icon = item.icon;
-
-        return (
-            <div className={styles.analyticsCard} key={item.title}>
-                <div
-                    className={styles.analyticsIcon}
-                    style={{
-                        background: `${item.color}15`,
-                        color: item.color,
-                    }}
-                >
-                    <Icon fontSize="medium" />
+                        <div>
+                            <h1>18 Days</h1>
+                            <span>Avg Payment Cycle</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div className={styles.analyticsContent}>
-                    <span>{item.title}</span>
-                    <h2>{item.value}</h2>
-                    <p>{item.subtitle}</p>
+                <div className={styles.right}>
+                    <button className={styles.secondaryBtn}>
+                        <DownloadIcon />
+                        Export
+                    </button>
+
+                    <button className={styles.primaryBtn}>
+                        <AddIcon />
+                        Create Payment
+                    </button>
                 </div>
-            </div>
-        );
-    })}
-</section>
-<section className={styles.tableSection}>
+            </section>
+            <section className={styles.analyticsSection}>
+                {paymentAnalytics.map((item) => {
+                    const Icon = item.icon;
 
-    <div className={styles.tableHeader}>
-        <div>
-            <h2>Completed Payments</h2>
-            <p>Monitor all completed vendor payments across projects.</p>
-        </div>
-    </div>
+                    return (
+                        <div className={styles.analyticsCard} key={item.title}>
+                            <div
+                                className={styles.analyticsIcon}
+                                style={{
+                                    background: `${item.color}15`,
+                                    color: item.color,}}>
+                                <Icon fontSize="medium" />
+                            </div>
 
-    <table className={styles.billTable}>
+                            <div className={styles.analyticsContent}>
+                                <span>{item.title}</span>
+                                <h2>{item.value}</h2>
+                                <p>{item.subtitle}</p>
+                            </div>
+                        </div>
+                    );
+                })}
+            </section>
+            <section className={styles.tableSection}>
 
-        <thead>
-            <tr>
-                <th>Payment ID</th>
-                <th>Bill No.</th>
-                <th>Vendor</th>
-                <th>Project</th>
-                <th>Payment Date</th>
-                <th>Mode</th>
-                <th>Amount</th>
-                <th>Status</th>
-            </tr>
-        </thead>
+                <div className={styles.tableHeader}>
+                    <div>
+                        <h2>Completed Payments</h2>
+                        <p>Monitor all completed vendor payments across projects.</p>
+                    </div>
+                </div>
 
-        <tbody>
+                <table className={styles.billTable}>
+                    <thead>
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Bill No.</th>
+                            <th>Vendor</th>
+                            <th>Project</th>
+                            <th>Payment Date</th>
+                            <th>Mode</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
 
-            {payments.map((payment) => (
+                    <tbody>
 
-                <tr key={payment.id}>
-                    <td>{payment.id}</td>
-                    <td>{payment.bill}</td>
-                    <td>{payment.vendor}</td>
-                    <td>{payment.project}</td>
-                    <td>{payment.paymentDate}</td>
-                    <td>{payment.mode}</td>
-                    <td>{payment.amount}</td>
+                        {payments.map((payment) => (
 
-                    <td>
-                        <span className={`${styles.status} ${styles.paid}`}>
-                            {payment.status}
-                        </span>
-                    </td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
-</section>
+                            <tr key={payment.id}>
+                                <td>{payment.id}</td>
+                                <td>{payment.bill}</td>
+                                <td>{payment.vendor}</td>
+                                <td>{payment.project}</td>
+                                <td>{payment.paymentDate}</td>
+                                <td>{payment.mode}</td>
+                                <td>{payment.amount}</td>
+
+                                <td>
+                                    <span className={`${styles.status} ${styles.paid}`}>
+                                        {payment.status}
+                                    </span>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </section>
         </>
     );
 }

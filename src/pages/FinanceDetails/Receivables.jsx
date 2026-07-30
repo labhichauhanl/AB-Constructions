@@ -145,9 +145,7 @@ function Receivables() {
                 <div className={styles.tableHeader}>
                     <div>
                         <h2>Outstanding Receivables</h2>
-                        <p>
-                            Monitor unpaid customer invoices and outstanding balances.
-                        </p>
+                        <p>Monitor unpaid customer invoices and outstanding balances.</p>
                     </div>
                     <button className={styles.createBtn}>
                         + Create Receipt
@@ -180,8 +178,7 @@ function Receivables() {
                                 <td>
                                     <span
                                         className={`${styles.status} ${styles[item.status.toLowerCase().replace(/\s+/g, "")]
-                                            }`}
-                                    >
+                                            }`}>
                                         {item.status}
                                     </span>
                                 </td>
@@ -196,8 +193,6 @@ function Receivables() {
                     </tbody>
                 </table>
             </section>
-
-
         </div>
     )
 }
