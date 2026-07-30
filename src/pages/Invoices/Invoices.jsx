@@ -56,7 +56,7 @@ const financeKPIs = [
     subtitle: "5 Bills Pending",
     icon: TrendingDownIcon,
     color: "#EF4444",
-    type: "payable"
+    type: "payables"
   },
 ];
 

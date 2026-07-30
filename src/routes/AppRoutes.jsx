@@ -24,6 +24,7 @@ import BillDetails from "../pages/FinanceDetails/BillDetails";
 import InvoiceReceipts from "../pages/FinanceDetails/InvoiceReceipts";
 import PaymentsCompleted from "../pages/FinanceDetails/PaymentsCompleted";
 import Receivables from "../pages/FinanceDetails/Receivables";
+import Payables from "../pages/FinanceDetails/Payables";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -63,6 +64,17 @@ function AppRoutes() {
         <ProtectedRoute>
             <DashboardLayout>
                 <Receivables />
+            </DashboardLayout>
+        </ProtectedRoute>
+    }
+/>
+
+<Route
+    path="/finance-details/payables"
+    element={
+        <ProtectedRoute>
+            <DashboardLayout>
+                <Payables />
             </DashboardLayout>
         </ProtectedRoute>
     }
