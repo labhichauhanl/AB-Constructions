@@ -59,6 +59,7 @@
 .infoGrid span{
     color:#6b7280;
     font-size:13px;
+    font-weight: bold;
 }
 
 .infoGrid h3{
@@ -200,6 +201,7 @@
     color:#6b7280;
     font-size:13px;
     margin-bottom:8px;
+    font-weight: bold;
 }
 
 .infoCard h3{

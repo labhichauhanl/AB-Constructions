@@ -22,6 +22,7 @@ import QuotationDetails from "../pages/Quotations/QuotationDetails";
 import Bills from "../pages/FinanceDetails/Bills"
 import BillDetails from "../pages/FinanceDetails/BillDetails";
 import InvoiceReceipts from "../pages/FinanceDetails/InvoiceReceipts";
+import PaymentsCompleted from "../pages/FinanceDetails/PaymentsCompleted";
 
 import ProtectedRoute from "../routes/ProtectedRoute";
 
@@ -87,6 +88,17 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+    path="/finance-details/paymentMade"
+    element={
+        <ProtectedRoute>
+            <DashboardLayout>
+                <PaymentsCompleted />
+            </DashboardLayout>
+        </ProtectedRoute>
+    }
+/>
 
         <Route
           path="/finance-details/bills"

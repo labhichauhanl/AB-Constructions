@@ -127,12 +127,12 @@ function BillDetails() {
                     <div className={styles.overviewGrid}>
 
                         <div className={styles.infoCard}>
-                            <span>bill Number</span>
+                            <span>Bill Number</span>
                             <h3>{bill.id}</h3>
                         </div>
 
                         <div className={styles.infoCard}>
-                            <span>vendor</span>
+                            <span>Vendor</span>
                             <h3>{bill.vendor}</h3>
                         </div>
 

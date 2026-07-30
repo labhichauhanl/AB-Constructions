@@ -40,7 +40,7 @@ const financeKPIs = [
     subtitle: "14 Payments Cleared",
     icon: TaskAltIcon,
     color: "#10B981",
-    type: "paymentCompleted"
+    type: "paymentMade"
   },
   {
     title: "Outstanding Receivables",
