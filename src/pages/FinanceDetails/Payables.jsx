@@ -83,37 +83,19 @@ function Payables() {
     return (
         <div className={styles.page}>
             <section className={styles.heroSection}>
-
                 <div className={styles.heroContent}>
-
                     <div>
-
                         <span className={styles.heroTag}>
                             Finance Management
                         </span>
-
-                        <h1 className={styles.heroTitle}>
-                            Outstanding Payables
-                        </h1>
-
-                        <p className={styles.heroSubtitle}>
-                            Monitor pending supplier bills, upcoming payment obligations, and outstanding vendor balances across all active construction projects.
-                        </p>
-
+                        <h1 className={styles.heroTitle}>Outstanding Payables</h1>
+                        <p className={styles.heroSubtitle}>Monitor pending supplier bills, upcoming payment obligations, and outstanding vendor balances across all active construction projects.</p>
                     </div>
 
                     <div className={styles.heroActions}>
-
-                        <button className={styles.secondaryButton}>
-                            Export
-                        </button>
-
-                        <button className={styles.primaryButton}>
-                            + Create Report
-                        </button>
-
+                        <button className={styles.secondaryButton}>Export</button>
+                        <button className={styles.primaryButton}>+ Create Report</button>
                     </div>
-
                 </div>
 
             </section>
@@ -124,12 +106,10 @@ function Payables() {
                     return (
                         <div
                             key={card.title}
-                            className={styles.analyticsCard}
-                        >
+                            className={styles.analyticsCard}>
                             <div
                                 className={styles.analyticsIcon}
-                                style={{ background: `${card.color}20` }}
-                            >
+                                style={{ background: `${card.color}20` }}>
                                 <Icon style={{ color: card.color }} />
                             </div>
 
@@ -148,9 +128,7 @@ function Payables() {
                         <h2>Outstanding Payables</h2>
                         <p>Track pending supplier bills and upcoming payment obligations.</p>
                     </div>
-                    <button className={styles.createBtn}>
-                        + Create Receipt
-                    </button>
+                    <button className={styles.createBtn}>+ Create Receipt</button>
                 </div>
 
                 <table className={styles.receiptTable}>
@@ -178,16 +156,12 @@ function Payables() {
                                 <td>{item.aging}</td>
                                 <td>
                                     <span
-                                        className={`${styles.status} ${styles[item.status.toLowerCase().replace(/\s+/g, "")]
-                                            }`}>
+                                        className={`${styles.status} ${styles[item.status.toLowerCase().replace(/\s+/g, "")]}`}>
                                         {item.status}
                                     </span>
                                 </td>
                                 <td className={styles.actionButtons}>
-
-                                    <button className={styles.viewBtn}>
-                                        View
-                                    </button>
+                                    <button className={styles.viewBtn}>View</button>
                                 </td>
                             </tr>
                         ))}
