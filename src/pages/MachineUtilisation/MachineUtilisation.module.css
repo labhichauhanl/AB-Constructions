@@ -44,13 +44,6 @@
   color: var(--text-secondary);
 }
 
-.utilisationTable th {
-  text-align: left;
-  padding: 16px;
-  color: #6b7280;
-  border-bottom: 1px solid #e5e7eb;
-}
-
 .utilisationTable td {
   padding: 18px 16px;
   color: var(--text-primary);
@@ -171,11 +164,6 @@
   padding: 16px;
   color: #6b7280;
   border-bottom: 1px solid #e5e7eb;
-}
-
-.utilisationTable td {
-  padding: 18px 16px;
-  border-bottom: 1px solid #f3f4f6;
 }
 
 .progressWrapper {
