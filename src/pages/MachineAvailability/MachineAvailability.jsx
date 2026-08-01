@@ -121,6 +121,7 @@ function MachineAvailability() {
     <div className={styles.availabilityPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Availability Overview</span>
           <h1>Machine Availability</h1>
           <p>
             Track current machine status and assignments

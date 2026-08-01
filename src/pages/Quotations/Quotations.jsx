@@ -163,6 +163,7 @@ function Quotations() {
     <div className={styles.quotationsPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Quotations Overview</span>
           <h1>Quotations</h1>
           <p>
             Manage supplier quotations and approvals.

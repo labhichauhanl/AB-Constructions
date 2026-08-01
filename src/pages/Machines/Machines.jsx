@@ -41,6 +41,7 @@ function Machines() {
     <div className={styles.machinesPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Machines Overview</span>
           <h1>Machines</h1>
           <p>
             Manage all company machines and assets

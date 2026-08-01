@@ -32,6 +32,7 @@ function CompanyUsers() {
     <div className={styles.companyPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Users Overview</span>
           <h1>Company & Users</h1>
           <p>
             Manage organization members and roles.

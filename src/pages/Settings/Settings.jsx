@@ -4,6 +4,7 @@ function Settings() {
   return (
     <div className={styles.settingsPage}>
       <div className={styles.pageHeader}>
+        <span className={styles.pageTag}>Settings Overview</span>
         <h1>Settings</h1>
         <p>
           Manage profile and application preferences.

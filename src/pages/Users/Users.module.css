@@ -16,6 +16,17 @@
     rgba(255, 243, 184, 0.9)
   );
 
+  .pageTag{
+    display:inline-block;
+    margin-bottom:14px;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(255,193,7,.15);
+    color:#9A6700;
+    font-size:13px;
+    font-weight:600;
+}
+
   padding: 24px;
   border-radius: 22px;
   border: 1px solid rgba(255, 214, 10, 0.2);

@@ -197,6 +197,7 @@ function Requirements() {
     <div className={styles.requirementsPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Requirements Overview</span>
           <h1>Requirements</h1>
           <p>Manage equipment and workforce requests.</p>
         </div>

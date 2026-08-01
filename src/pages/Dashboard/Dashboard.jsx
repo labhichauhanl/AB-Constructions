@@ -76,6 +76,7 @@ function Dashboard() {
     <>
       <div className={styles.dashboard}>
         <section className={styles.welcomeSection}>
+          <span className={styles.pageTag}>Dashboard Overview</span>
           <h1>Good Morning, Abhi</h1>
           <p>
             Welcome back to ABC Builders. Here's an overview

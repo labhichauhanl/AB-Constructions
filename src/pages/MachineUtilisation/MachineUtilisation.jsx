@@ -154,6 +154,7 @@ function MachineUtilisation() {
     <div className={styles.utilisationPage}>
       <div className={styles.pageHeader}>
         <div>
+          <span className={styles.pageTag}>Utilisation Overview</span>
           <h1>Machine Utilisation</h1>
           <p>Track usage, idle time, and productivity of machines</p>
         </div>

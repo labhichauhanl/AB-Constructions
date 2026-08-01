@@ -153,6 +153,7 @@ function Projects() {
     <div className={styles.projectsPage}>
       <div className={styles.pageHeader}>
         <div className={styles.welcomeSection}>
+          <span className={styles.pageTag}>Projects Overview</span>
           <h1>Projects</h1>
           <p>Manage all ongoing construction projects.</p>
         </div>
