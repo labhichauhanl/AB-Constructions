@@ -174,6 +174,49 @@ const reportAnalytics = [
   },
 ];
 
+const topClients = [
+  {
+    id: 1,
+    name: "ABC Developers",
+    type: "Customer",
+    revenue: "₹1.42 Cr",
+    projects: 4,
+    color: "#2563EB",
+  },
+  {
+    id: 2,
+    name: "Skyline Infra",
+    type: "Customer",
+    revenue: "₹98 L",
+    projects: 3,
+    color: "#16A34A",
+  },
+  {
+    id: 3,
+    name: "Green Homes",
+    type: "Customer",
+    revenue: "₹87 L",
+    projects: 2,
+    color: "#F59E0B",
+  },
+  {
+    id: 4,
+    name: "L&T Equipment",
+    type: "Vendor",
+    revenue: "₹62 L",
+    projects: 5,
+    color: "#EF4444",
+  },
+  {
+    id: 5,
+    name: "Caterpillar India",
+    type: "Vendor",
+    revenue: "₹55 L",
+    projects: 4,
+    color: "#8B5CF6",
+  },
+];
+
 function Reports() {
 
   const navigate = useNavigate();
@@ -425,6 +468,79 @@ function Reports() {
               />
             </BarChart>
           </ResponsiveContainer>
+        </div>
+      </section>
+
+      <section className={styles.bottomGrid}>
+        <div className={styles.chartCard}>
+          <div className={styles.chartHeader}>
+            <div>
+              <h2 className={styles.chartTitle}>
+                Recent Financial Activity
+              </h2>
+              <p className={styles.chartSubtitle}>
+                Latest financial updates across invoices, bills and payments.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.activityList}>
+            {recentActivities.map((activity) => (
+              <div
+                className={styles.activityItem}
+                key={activity.id}>
+
+                <div
+                  className={`${styles.activityDot} ${styles[activity.type]}`}
+                />
+
+                <div className={styles.activityContent}>
+                  <h4>{activity.title}</h4>
+                  <p>{activity.description}</p>
+                </div>
+                <span className={styles.activityTime}>
+                  {activity.time}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.chartCard}>
+          <div className={styles.chartHeader}>
+            <div>
+              <h2 className={styles.chartTitle}>
+                Top Customers & Vendors
+              </h2>
+              <p className={styles.chartSubtitle}>
+                Highest business contributors this financial year.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.clientList}>
+            {topClients.map((client, index) => (
+              <div
+                className={styles.clientItem}
+                key={client.id}>
+                <div
+                  className={styles.clientAvatar}
+                  style={{
+                    background: client.color
+                  }}>
+                  {index + 1}
+                </div>
+
+                <div className={styles.clientInfo}>
+                  <h4>{client.name}</h4>
+                  <span>
+                    {client.type} • {client.projects} Projects
+                  </span>
+                </div>
+                <h3>{client.revenue}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -43,7 +43,7 @@ function Sidebar({ collapsed }) {
     },
     {
       path: "/invoices",
-      label: "Invoices",
+      label: "Finances",
       icon: <ReceiptLongIcon />,
     },
     {
