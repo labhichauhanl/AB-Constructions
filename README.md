@@ -1,16 +1,278 @@
-# React + Vite
+# 🏗️ Construction Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Construction Management Dashboard** built using **React.js** and **Vite** to streamline project monitoring, machine management, procurement, finance, and reporting for construction companies.
 
-Currently, two official plugins are available:
+This dashboard provides a centralized platform for tracking ongoing projects, managing machinery, monitoring financial activities, and generating business insights through interactive reports.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> *(Add screenshots or GIFs here after deployment.)*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+### 🔐 Authentication
+- Customer Login
+- Protected Routes
+- Responsive Login UI
+
+### 📊 Dashboard
+- Business KPI Cards
+- Active Projects Overview
+- Recent Activities
+- Quick Actions
+
+### 🏗️ Project Management
+- Project Listing
+- Advanced Search & Filters
+- Expandable Project Details
+- Budget Tracking
+- Team Allocation
+- Machine Allocation
+- Progress Monitoring
+
+### 📋 Requirements Management
+- Machine Requirements
+- Project Requirements
+- Requirement Status Tracking
+- Procurement Workflow
+
+### 💼 Quotations
+- Vendor Quotations
+- Search & Filters
+- Vendor Comparison
+- Quotation Details
+- Procurement Decision Support
+
+### 🚜 Machine Management
+
+#### Machine Inventory
+- Machine Listing
+- Equipment Details
+- Compliance Status
+- Ownership Status
+
+#### Machine Availability
+- Date Range Availability Check
+- Availability Status
+- Upcoming Machine Releases
+- Search & Machine Filters
+
+#### Machine Utilisation
+- Utilisation Analytics
+- Idle Machine Analysis
+- Working Hours Tracking
+- Performance KPIs
+
+### 💰 Finance Module
+
+#### Invoice Raised
+- Invoice Overview
+- Search & Filters
+- Invoice Tracking
+- Invoice Details
+
+#### Bills
+- Vendor Bills
+- Bill Details
+
+#### Receipts
+- Payment Receipts
+- Receipt Details
+
+#### Payments Completed
+- Completed Payment History
+
+#### Receivables
+- Customer Outstanding Payments
+- Receivable Details
+
+#### Payables
+- Vendor Outstanding Payments
+- Payable Details
+
+### 📈 Reports & Analytics
+
+- Revenue Trend
+- Expense Breakdown
+- Project Revenue Analysis
+- Receivables vs Payables
+- Machine Utilisation Chart
+- Financial Activity Timeline
+- Top Customers & Vendors
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React.js
+- Vite
+- React Router DOM
+- CSS Modules
+- Material UI (MUI)
+
+### Charts
+
+- Recharts
+
+### Icons
+
+- React Icons
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+
+├── assets/
+
+├── components/
+│   ├── Header/
+│   ├── Sidebar/
+│   └── ProtectedRoute/
+
+├── layouts/
+│   └── DashboardLayout/
+
+├── pages/
+
+│   ├── Dashboard/
+
+│   ├── Projects/
+
+│   ├── Requirements/
+
+│   ├── Quotations/
+
+│   ├── Jobs/
+
+│   ├── Machines/
+│      ├── Machines
+│      ├── MachineAvailability
+│      └── MachineUtilisation
+
+│   ├── Finance/
+│      ├── Invoices
+│      ├── InvoiceDetails
+│      ├── Receipts
+│      ├── Bills
+│      ├── BillDetails
+│      ├── PaymentsCompleted
+│      ├── Receivables
+│      ├── ReceivableDetails
+│      ├── Payables
+│      └── PayableDetails
+
+│   ├── Reports/
+
+│   └── Settings/
+
+├── data/
+
+├── App.jsx
+
+└── main.jsx
+```
+
+---
+
+## 📈 Key Functionalities
+
+- Responsive Dashboard
+- Protected Navigation
+- Advanced Search
+- Dynamic Filters
+- Interactive Tables
+- Expandable Detail Pages
+- Financial Tracking
+- Machine Scheduling
+- KPI Analytics
+- Interactive Charts
+- Responsive Design
+
+---
+
+## 🎯 Future Improvements
+
+- Backend Integration
+- Authentication API
+- Role Based Access Control
+- Live Notifications
+- File Uploads
+- Export Reports (PDF/Excel)
+- Dark Mode
+- Real-Time Dashboard
+- Email Notifications
+- Database Integration
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/your-username/construction-dashboard.git
+```
+
+Navigate into the project
+
+```bash
+cd construction-dashboard
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 📷 Screenshots
+
+Add screenshots of:
+
+- Login
+- Dashboard
+- Projects
+- Requirements
+- Quotations
+- Machine Management
+- Finance
+- Reports
+
+---
+
+## 👨‍💻 Developed By
+
+**Abhi Chauhan**
+
+Frontend Developer Intern
+
+Built using React.js, Vite, Material UI and Recharts.
+
+---
+
+## 📄 License
+
+This project was developed as part of an internship and is intended for educational and demonstration purposes.
