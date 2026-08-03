@@ -8,7 +8,8 @@ This dashboard provides a centralized platform for tracking ongoing projects, ma
 
 ## 📸 Preview
 
-> *(Add screenshots or GIFs here after deployment.)*
+> <img width="1913" height="861" alt="image" src="https://github.com/user-attachments/assets/cb84ecde-3994-42bd-beda-0bbca5e46d88" />
+
 
 ---
 
@@ -196,6 +197,19 @@ src/
 - KPI Analytics
 - Interactive Charts
 - Responsive Design
+
+---
+
+## ⭐ Project Highlights
+
+- 20+ Responsive Dashboard Pages
+- Enterprise Construction Management Workflow
+- Finance Management Module
+- Machine Availability & Utilisation Tracking
+- Interactive Reports with Recharts
+- Advanced Search & Multi-Level Filtering
+- Responsive UI using React + CSS Modules
+- Modular Component-Based Architecture
 
 ---
 
